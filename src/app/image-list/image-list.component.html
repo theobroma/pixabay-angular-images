@@ -1,31 +1,63 @@
-<p>image-list works!</p>
-
-
-<div fxLayout='row' class="zero">
+<!-- <div fxLayout='row' class="zero">
   <div fxFlex="50%" class="one" >one</div>
   <div fxFlex="50%" fxLayout="row" class="two">two</div>
+</div> -->
+
+
+<!-- <div *ngFor="let image of data.hits" class="column container images" >
+  <ng-container>
+    <img src={{image.webformatURL}} class="image">
+  </ng-container>
+</div> -->
+
+<div class="container"
+  style="margin:0 auto"
+  fxFlex.gt-xs="100%"
+  fxFlex.gt-sm="100%"
+  fxFlex.gt-md="1280px"
+  fxFlex.gt-lg="1280px">
+    <div
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="1px"
+    fxLayoutAlign="flex-start">
+    <ng-container *ngFor="let image of data.hits">
+      <div class="app-card"
+        fxFlex.gt-lg="0 1 calc(25% - 1px)"
+        fxFlex.gt-md="0 1 calc(25% - 1px)"
+        fxFlex="0 1 calc(33.3% - 1px)"
+        fxFlex.lt-md="0 1 calc(50% - 1px)"
+        fxFlex.lt-sm="100%"
+      >
+      <!-- card -->
+      <img src={{image.webformatURL}} class="image" alt="Photo of a Shiba Inu">
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- <div>total : {{data.total}}</div> -->
+
+  <!-- <mat-card>
+    <mat-card-content>
+          <a href="" routerLink="/user-info" routerLinkActive="active">
+        <mat-card-header>
+          <div class="avatar" mat-card-avatar [ngStyle]="{'background-image':'url('+ image.userImageURL +')', 'background-size':'40px 40px'}"></div>
+          <mat-card-subtitle>User: {{ image.user }}</mat-card-subtitle>
+        </mat-card-header>
+      </a>
+      <mat-card-title-group>
+          <span class="tags"><mat-icon>loyalty</mat-icon>{{ image.tags }}</span>
+          <span class="comment"><mat-icon>comment</mat-icon> {{ image.comments }}</span>
+          <a href="{{ image.pageURL }}" target="_bank" rel="noopener">
+          <span class="likes"><mat-icon>thumb_up_alt</mat-icon>{{ image.likes }}</span>
+        </a>
+      </mat-card-title-group>
+    </mat-card-content>
+  </mat-card> -->
+
 </div>
 
-<ng-container>
-  <img src={{image.webformatURL}} class="image">
-</ng-container>
 
-<div>total : {{data.total}}</div>
 
-<mat-card>
-  <mat-card-content>
-        <a href="" routerLink="/user-info" routerLinkActive="active">
-      <mat-card-header>
-        <div class="avatar" mat-card-avatar [ngStyle]="{'background-image':'url('+ image.userImageURL +')', 'background-size':'40px 40px'}"></div>
-        <mat-card-subtitle>User: {{ image.user }}</mat-card-subtitle>
-      </mat-card-header>
-    </a>
-    <mat-card-title-group>
-        <span class="tags"><mat-icon>loyalty</mat-icon>{{ image.tags }}</span>
-        <span class="comment"><mat-icon>comment</mat-icon> {{ image.comments }}</span>
-        <a href="{{ image.pageURL }}" target="_bank" rel="noopener">
-        <span class="likes"><mat-icon>thumb_up_alt</mat-icon>{{ image.likes }}</span>
-      </a>
-    </mat-card-title-group>
-  </mat-card-content>
-</mat-card>
+
+

@@ -1,27 +1,42 @@
-# PixabayAngularImages
+# PixaBay Image Finder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+##### Angular app to find images utilizing the PixaBay API
 
-## Development server
+Register your API Key at
+[https://pixabay.com/](https://pixabay.com/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Quick Start
 
-## Code scaffolding
+```bash
+# Install dependencies
+npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Serve on localhost:3000
+npm start
 
-## Build
+# Build for production
+npm run build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Lint with eslint
+npm run lint
+```
 
-## Running unit tests
+## Deploy to Netlify
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+# Generate a production build and deploy it
 
-## Running end-to-end tests
+  "scripts": {
+    ...
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
+  },
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Status badge
 
-## Further help
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6a22e2ba-197d-41d2-8eb8-4b424e297bfd/deploy-status)](https://app.netlify.com/sites/sleepy-darwin-8a961b/deploys)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+```

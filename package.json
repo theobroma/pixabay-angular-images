@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +48,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "netlify-cli": "^3.37.31",
     "typescript": "~4.2.3"
   }
 }

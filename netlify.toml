@@ -1,0 +1,6 @@
+[build]
+  publish = "dist/pixabay-angular-images"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { MaterialModule } from './material/material.module';
+import { AppbarComponent } from './appbar/appbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageListComponent
+    ImageListComponent,
+    AppbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,2 +1,4 @@
-<app-appbar></app-appbar>
-<app-image-list></app-image-list>
+<div [ngClass]="{'dark-theme': isDarkTheme | async}" >
+  <app-appbar></app-appbar>
+  <app-image-list></app-image-list>
+</div>

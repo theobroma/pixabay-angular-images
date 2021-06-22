@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { ThemeService } from '../core/services/theme.service';
 
 @Component({
   selector: 'app-appbar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppbarComponent implements OnInit {
   title = 'pixabay-angular-images';
-  constructor() { }
+  isDarkTheme: Observable<boolean>;
 
-  ngOnInit(): void {
+
+  constructor(private themeService: ThemeService) {
+    // Initialization inside the constructor
+    this.isDarkTheme =of(false);
+ }
+
+  ngOnInit() {
+    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
+  toggleDarkTheme(checked: boolean) {
+    this.themeService.setDarkTheme(checked);
+  }
 }

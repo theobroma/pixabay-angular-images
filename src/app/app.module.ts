@@ -10,6 +10,10 @@ import { MaterialModule } from './material/material.module';
 import { AppbarComponent } from './appbar/appbar.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { reducers, metaReducers } from './reducers';
     MaterialModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

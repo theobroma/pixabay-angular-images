@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { MaterialModule } from './material/material.module';
 import { AppbarComponent } from './appbar/appbar.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { AppbarComponent } from './appbar/appbar.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

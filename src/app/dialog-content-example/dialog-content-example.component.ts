@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { DialogContentExampleDialogComponent } from '../dialog-content-example-dialog/dialog-content-example-dialog.component';
 
 @Component({
@@ -14,7 +14,9 @@ export class DialogContentExampleComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialogComponent);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.panelClass= 'image-details-dialog';
+    const dialogRef = this.dialog.open(DialogContentExampleDialogComponent,dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

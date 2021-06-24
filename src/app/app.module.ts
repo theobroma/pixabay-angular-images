@@ -14,12 +14,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { DialogContentExampleComponent } from './dialog-content-example/dialog-content-example.component';
+import { DialogContentExampleDialogComponent } from './dialog-content-example-dialog/dialog-content-example-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageListComponent,
-    AppbarComponent
+    AppbarComponent,
+    DialogContentExampleComponent,
+    DialogContentExampleDialogComponent
   ],
   imports: [
     BrowserModule,

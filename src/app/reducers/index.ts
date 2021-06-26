@@ -1,17 +1,13 @@
-import { SettingsState, settingsReducer } from './settings';
 import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
+  ActionReducerMap, MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { PicturesState, picturesReducer } from './pictures';
+import { picturesReducer, PicturesState } from './pictures/pictures.reducer';
+import { settingsReducer, SettingsState } from './settings/settings.reducer';
 
 export interface State {
-  pictures:PicturesState
-  settings:SettingsState
+  pictures:PicturesState;
+  settings:SettingsState;
 }
 
 export const reducers: ActionReducerMap<State> = {

@@ -11,6 +11,11 @@ export const initialState: SettingsState = {
 
 export const settingsReducer = createReducer(
   initialState,
+  // on(
+  //   // actionSettingsChangeLanguage,
+  //   actionSettingsChangeTheme,
+  //   (state, action) => ({ ...state, ...action })
+  // ),
   on(clear, state => ({
     ...state,
     theme: ""

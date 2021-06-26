@@ -15,5 +15,9 @@
     <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">
       <mat-icon color="primary" >brightness_2</mat-icon>
     </mat-slide-toggle>
+    <!--  -->
+    <ng-container *ngIf="settings$ | async as settings">
+      <h2>{{settings.theme}}</h2>
+    </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -1,5 +1,5 @@
 import { createAction, createReducer, on } from "@ngrx/store";
-export const clear = createAction('[COUNTER] clear');
+export const clear = createAction('[PICTURES] clear');
 
 // const picturesInitialState = {
 //   data: {

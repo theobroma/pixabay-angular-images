@@ -22,7 +22,7 @@ export class AppbarComponent implements OnInit {
     { value: 'DEFAULT-THEME', label: 'blue' },
     { value: 'LIGHT-THEME', label: 'light' },
     { value: 'NATURE-THEME', label: 'nature' },
-    { value: 'DARK-THEME', label: 'dark' }
+    { value: 'BLACK-THEME', label: 'dark' }
   ];
 
   constructor(private themeService: ThemeService,private store: Store<any>) {

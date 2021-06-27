@@ -1,0 +1,61 @@
+@use '~@angular/material' as mat;
+
+// =======================Black==============================
+$anms-black-primary: mat.define-palette(mat.$grey-palette, 700, 300, 900);
+$anms-black-accent: mat.define-palette(mat.$blue-grey-palette, 400);
+$anms-black-warn: mat.define-palette(mat.$red-palette, 500);
+
+$anms-black-theme: mat.define-dark-theme(
+  $anms-black-primary,
+  $anms-black-accent,
+  $anms-black-warn
+);
+
+// =======================Default==============================
+$anms-primary: mat.define-palette(mat.$indigo-palette, 800, 300, 900);
+$anms-accent: mat.define-palette(mat.$light-blue-palette);
+$anms-warn: mat.define-palette(mat.$pink-palette, 600);
+
+$anms-theme: mat.define-light-theme($anms-primary, $anms-accent, $anms-warn);
+
+// =======================Light==============================
+$anms-light-primary: mat.define-palette(mat.$grey-palette, 200, 500, 300);
+$anms-light-accent: mat.define-palette(mat.$brown-palette, 200);
+$anms-light-warn: mat.define-palette(mat.$deep-orange-palette, 200);
+
+$anms-light-theme: mat.define-light-theme(
+  $anms-light-primary,
+  $anms-light-accent,
+  $anms-light-warn
+);
+
+// =======================Nature==============================
+$anms-nature-primary: mat.define-palette(mat.$brown-palette, 700, 300, 900);
+$anms-nature-accent: mat.define-palette(mat.$deep-purple-palette, 300);
+$anms-nature-warn: mat.define-palette(mat.$red-palette, 600);
+
+$anms-nature-theme: mat.define-light-theme(
+  $anms-nature-primary,
+  $anms-nature-accent,
+  $anms-nature-warn
+);
+
+.default-theme {
+  @include mat.all-component-themes($anms-theme);
+  // @include custom-components-theme($anms-theme);
+}
+
+.light-theme {
+  @include mat.all-component-themes($anms-light-theme);
+  // @include custom-components-theme($anms-light-theme);
+}
+
+.black-theme {
+  @include mat.all-component-themes($anms-black-theme);
+  // @include custom-components-theme($anms-black-theme);
+}
+
+.nature-theme {
+  @include mat.all-component-themes($anms-nature-theme);
+  // @include custom-components-theme($anms-nature-theme);
+}

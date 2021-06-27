@@ -1,4 +1,4 @@
-<div [ngClass]="{'dark-theme': isDarkTheme | async}" >
+<div [class]="'theme-wrapper ' + (theme$ | async)|lowercase">
   <app-appbar></app-appbar>
   <app-image-list></app-image-list>
 </div>

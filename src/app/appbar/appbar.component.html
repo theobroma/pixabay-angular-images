@@ -1,14 +1,3 @@
-<!-- <mat-toolbar color="primary" style="margin-bottom:16px">
-  <span>{{title}}</span>
-  <div align="right">
-    <mat-slide-toggle>
-     <mat-icon color="primary">
-      brightness_2
-     </mat-icon>
-    </mat-slide-toggle>
-   </div>
-</mat-toolbar> -->
-
 <mat-toolbar color="primary" style="margin-bottom:16px">
   <mat-toolbar-row>
     <h1>{{title}}</h1>
@@ -19,5 +8,14 @@
     <ng-container *ngIf="settings$ | async as settings">
       <h2>{{settings.theme}}</h2>
     </ng-container>
+    <!-- Theme select -->
+    <mat-form-field appearance="fill">
+      <mat-label>Choose an option</mat-label>
+      <mat-select  (selectionChange)="onThemeSelect($event)">
+        <mat-option *ngFor="let t of themes" [value]="t.value">
+          {{ t.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </mat-toolbar-row>
 </mat-toolbar>

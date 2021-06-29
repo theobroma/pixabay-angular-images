@@ -21,7 +21,7 @@
     fxLayout.lt-sm="column"
     fxLayoutGap="1px"
     fxLayoutAlign="flex-start">
-    <ng-container *ngFor="let image of data.hits">
+    <ng-container *ngFor="let image of hits$ | async">
       <div class="app-card"
         fxFlex.gt-lg="0 1 calc(25% - 1px)"
         fxFlex.gt-md="0 1 calc(25% - 1px)"

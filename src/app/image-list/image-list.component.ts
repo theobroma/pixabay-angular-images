@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ImageService } from '../image.service';
 import { PicturesDataType } from '../reducers/pictures/pictures.model';
+import { selectPicturesHits } from '../reducers/pictures/pictures.selectors';
 
 @Component({
   selector: 'app-image-list',
@@ -21,9 +22,8 @@ export class ImageListComponent implements OnInit {
   //   comments:1054,
   // };
 
-  data: any = {};
   // movies$: Observable<Movie[]> = this.store.select(state => state.movies);
-  picturesData$: Observable<PicturesDataType> = this.store.select(state => state.pictures);
+  hits$: Observable<any> = this.store.select(selectPicturesHits);
 
   constructor(private imageService: ImageService,private store: Store<any>) { }
 

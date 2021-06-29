@@ -17,6 +17,7 @@ import { AppEffects } from './app.effects';
 import { DialogContentExampleComponent } from './dialog-content-example/dialog-content-example.component';
 import { DialogContentExampleDialogComponent } from './dialog-content-example-dialog/dialog-content-example-dialog.component';
 import { PicturesEffects } from './reducers/pictures/pictures.effects';
+import { ImageListItemComponent } from './image-list-item/image-list-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PicturesEffects } from './reducers/pictures/pictures.effects';
     ImageListComponent,
     AppbarComponent,
     DialogContentExampleComponent,
-    DialogContentExampleDialogComponent
+    DialogContentExampleDialogComponent,
+    ImageListItemComponent
   ],
   imports: [
     BrowserModule,

@@ -22,15 +22,23 @@
     fxLayoutGap="1px"
     fxLayoutAlign="flex-start">
     <ng-container *ngFor="let image of hits$ | async">
-      <div class="app-card"
+      <!-- <div class="app-card"
         fxFlex.gt-lg="0 1 calc(25% - 1px)"
         fxFlex.gt-md="0 1 calc(25% - 1px)"
         fxFlex="0 1 calc(33.3% - 1px)"
         fxFlex.lt-md="0 1 calc(50% - 1px)"
         fxFlex.lt-sm="100%"
       >
-      <!-- card -->
-      <img src={{image.webformatURL}} class="image" alt="Photo of a Shiba Inu">
+        <img src={{image.webformatURL}} class="image" alt="Photo of a Shiba Inu">
+      </div> -->
+     <div class="app-card"
+        fxFlex.gt-lg="0 1 calc(25% - 1px)"
+        fxFlex.gt-md="0 1 calc(25% - 1px)"
+        fxFlex="0 1 calc(33.3% - 1px)"
+        fxFlex.lt-md="0 1 calc(50% - 1px)"
+        fxFlex.lt-sm="100%"
+      >
+        <app-image-list-item  [image]="image"></app-image-list-item>
       </div>
     </ng-container>
   </div>
@@ -65,5 +73,3 @@
   </mat-card> -->
   <app-dialog-content-example></app-dialog-content-example>
 </div>
-
-

@@ -11,9 +11,9 @@ export class PicturesEffects {
     ofType('[Pictures] Load Pictures'),
     mergeMap(() => this.imageService.getImages()
       .pipe(
-        map(picturesData => ({ type: '[Pictures] Pictures Loaded Success', payload: picturesData })),
+        map(picturesData => ({ type: '[Pictures] Load Pictures Success', payload: picturesData })),
         // catchError(() => EMPTY)
-        catchError(() => of({ type: '[Pictures] Pictures Loaded Error' }))
+        catchError(() => of({ type: '[Pictures] Load Pictures Failure' }))
       ))
     ) }
   );

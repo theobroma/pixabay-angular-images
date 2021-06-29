@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { DialogContentExampleComponent } from './dialog-content-example/dialog-content-example.component';
 import { DialogContentExampleDialogComponent } from './dialog-content-example-dialog/dialog-content-example-dialog.component';
+import { PicturesEffects } from './reducers/pictures/pictures.effects';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { DialogContentExampleDialogComponent } from './dialog-content-example-di
       metaReducers
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([PicturesEffects,AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

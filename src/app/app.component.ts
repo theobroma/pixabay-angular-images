@@ -28,7 +28,7 @@ export class AppComponent {
   ngOnInit(): void {
     // this.theme$ = this.store.pipe(select(selectTheme));
     this.theme$ = this.store.pipe(select(selectEffectiveTheme)).pipe(
-      tap(val => console.log('Theme: ', val))
+      // tap(val => console.log('Theme: ', val))
     );
   }
 }

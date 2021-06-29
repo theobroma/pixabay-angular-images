@@ -34,7 +34,7 @@ export class AppbarComponent implements OnInit {
 
   ngOnInit() {
     this.settings$ = this.store.pipe(select(selectSettings)).pipe(
-      tap(val => console.log('Settings: ', val))
+      // tap(val => console.log('Settings: ', val))
     );
     // this.settings$ = this.store.pipe(select("settings"));
     this.isDarkTheme = this.themeService.isDarkTheme;

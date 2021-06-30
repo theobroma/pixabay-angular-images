@@ -1,5 +1,6 @@
 import { createAction, createReducer, on, props } from "@ngrx/store";
 export const clear = createAction('[PICTURES] clear');
+export const incrementPage = createAction('[PICTURES] increment page');
 
 export const loadPictures = createAction(
   '[Pictures] Load Pictures',
@@ -65,6 +66,12 @@ export const picturesReducer = createReducer(
     return ({
       ...state, data: action.payload,
       loading: false
+    })}
+  ),
+  on(incrementPage, (state,action) =>{
+    // console.log(action);
+    return ({
+      ...state, page: state.page+1
     })}
   ),
   on(clear, state => ({

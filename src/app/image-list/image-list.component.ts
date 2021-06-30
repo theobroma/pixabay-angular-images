@@ -32,6 +32,10 @@ export class ImageListComponent implements OnInit {
     this.store.dispatch({ type: '[Pictures] Load Pictures' });
   }
 
+  handleLoadMore() {
+    this.store.dispatch({ type: '[PICTURES] increment page' });
+  }
+
   // getImages(): void {
   //   this.imageService.getImages()
   //   .subscribe(data => this.data = data);

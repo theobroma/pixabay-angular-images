@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ImageService } from '../image.service';
-import { PicturesDataType } from '../reducers/pictures/pictures.model';
 import { selectPicturesHits } from '../reducers/pictures/pictures.selectors';
 
 @Component({
@@ -28,17 +27,11 @@ export class ImageListComponent implements OnInit {
   constructor(private imageService: ImageService,private store: Store<any>) { }
 
   ngOnInit() {
-    // this.getImages();
     this.store.dispatch({ type: '[Pictures] Load Pictures' });
   }
 
   handleLoadMore() {
     this.store.dispatch({ type: '[PICTURES] increment page' });
   }
-
-  // getImages(): void {
-  //   this.imageService.getImages()
-  //   .subscribe(data => this.data = data);
-  // }
 
 }

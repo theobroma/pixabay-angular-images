@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ThemeService } from '../core/services/theme.service';
+import { AppState } from '../reducers';
 import { actionSettingsChangeTheme } from '../reducers/settings/settings.actions';
 import { selectSettings } from '../reducers/settings/settings.selectors';
 
@@ -10,7 +11,7 @@ import { selectSettings } from '../reducers/settings/settings.selectors';
   selector: 'app-appbar',
   templateUrl: './appbar.component.html',
   styleUrls: ['./appbar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppbarComponent implements OnInit {
   title = 'pixabay-angular-images';
@@ -22,20 +23,22 @@ export class AppbarComponent implements OnInit {
     { value: 'DEFAULT-THEME', label: 'blue' },
     { value: 'LIGHT-THEME', label: 'light' },
     { value: 'NATURE-THEME', label: 'nature' },
-    { value: 'BLACK-THEME', label: 'dark' }
+    { value: 'BLACK-THEME', label: 'dark' },
   ];
 
-  constructor(private themeService: ThemeService,private store: Store<any>) {
+  constructor(private themeService: ThemeService, private store: Store) {
     // Initialization inside the constructor
-    this.isDarkTheme =of(false);
-    this.settings$=of({theme:"test"});
+    this.isDarkTheme = of(false);
+    this.settings$ = of({ theme: 'test' });
     // this.settings$.subscribe(res => console.log(res));
- }
+  }
 
   ngOnInit() {
-    this.settings$ = this.store.pipe(select(selectSettings)).pipe(
+    this.settings$ = this.store
+      .select(selectSettings)
+      .pipe
       // tap(val => console.log('Settings: ', val))
-    );
+      ();
     // this.settings$ = this.store.pipe(select("settings"));
     this.isDarkTheme = this.themeService.isDarkTheme;
     // this.settings$.subscribe(res => console.log(res));
@@ -45,7 +48,7 @@ export class AppbarComponent implements OnInit {
     this.themeService.setDarkTheme(checked);
   }
 
-  onThemeSelect({ value: theme }:any) {
+  onThemeSelect({ value: theme }: any) {
     this.store.dispatch(actionSettingsChangeTheme({ theme }));
   }
 }

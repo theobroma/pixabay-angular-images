@@ -1,21 +1,21 @@
 <mat-toolbar color="primary" style="margin-bottom:16px">
-  <mat-toolbar-row>
-    <h1 style="margin-right:16px">{{title}}</h1>
-    <!-- <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">
+    <mat-toolbar-row>
+        <h1 style="margin-right:16px">{{title}}</h1>
+        <!-- <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">
       <mat-icon color="primary" >brightness_2</mat-icon>
     </mat-slide-toggle> -->
-    <!--  -->
-    <ng-container *ngIf="settings$ | async as settings" >
-      <h2 style="margin-right:16px">{{settings.theme|lowercase}}</h2>
-    </ng-container>
-    <!-- Theme select -->
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
-      <mat-select  (selectionChange)="onThemeSelect($event)">
-        <mat-option *ngFor="let t of themes" [value]="t.value">
-          {{ t.label }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-toolbar-row>
+        <!--  -->
+        <ng-container *ngIf="settings$ | async as settings">
+            <h2 style="margin-right:16px">{{settings.theme|lowercase}}</h2>
+        </ng-container>
+        <!-- Theme select -->
+        <mat-form-field appearance="fill">
+            <mat-label>Choose an option</mat-label>
+            <mat-select (selectionChange)="onThemeSelect($event)">
+                <mat-option *ngFor="let t of themes" [value]="t.value">
+                    {{ t.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-toolbar-row>
 </mat-toolbar>

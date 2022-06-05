@@ -54,7 +54,7 @@ export const picturesReducer = createReducer(
     // console.log(action);
     return {
       ...state,
-      data: action.payload,
+      data: action.data,
       loading: false,
     };
   }),

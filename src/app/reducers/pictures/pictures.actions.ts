@@ -1,19 +1,17 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
+import { PicturesDataType } from './pictures.model';
 
 export const clear = createAction('[PICTURES] Clear');
 export const incrementPage = createAction('[PICTURES] Increment Page');
 
-export const loadPictures = createAction(
-  '[Pictures] Load Pictures',
-  props<{ payload: any }>()
-);
+export const loadPictures = createAction('[Pictures] Load Pictures');
 
 export const loadPicturesSuccess = createAction(
   '[Pictures] Load Pictures Success',
-  props<{ payload: any }>()
+  (data: PicturesDataType) => ({ data })
 );
 
 export const loadPicturesFailure = createAction(
   '[Pictures] Load Pictures Failure',
-  props<{ payload: any }>()
+  (err: any) => ({ err })
 );

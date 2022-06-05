@@ -1,22 +1,10 @@
-import { createAction, createReducer, on, props } from "@ngrx/store";
-export const clear = createAction('[PICTURES] clear');
-export const incrementPage = createAction('[PICTURES] increment page');
-
-export const loadPictures = createAction(
-  '[Pictures] Load Pictures',
-  props<{payload:any}>()
-);
-
-export const loadPicturesSuccess = createAction(
-  '[Pictures] Load Pictures Success',
-  props<{payload:any}>()
-);
-
-export const loadPicturesFailure = createAction(
-  '[Pictures] Load Pictures Failure',
-  props<{payload:any}>()
-);
-
+import { createAction, createReducer, on } from '@ngrx/store';
+import {
+  clear,
+  incrementPage,
+  loadPictures,
+  loadPicturesSuccess,
+} from './pictures.actions';
 
 // const picturesInitialState = {
 //   data: {
@@ -32,12 +20,12 @@ export const loadPicturesFailure = createAction(
 // };
 
 export interface PicturesState {
-  data: any,
-  loading: boolean,
-  page: number,
-  pictureSearch: string,
-  largeImageURL: string,
-  tags:string,
+  data: any;
+  loading: boolean;
+  page: number;
+  pictureSearch: string;
+  largeImageURL: string;
+  tags: string;
 }
 
 export const initialState: PicturesState = {
@@ -45,37 +33,43 @@ export const initialState: PicturesState = {
     total: 0,
     totalHits: 0,
     hits: [],
-  } ,
+  },
   loading: false,
   page: 1,
   pictureSearch: 'nature',
   largeImageURL: '',
-  tags: '' ,
+  tags: '',
 };
 
 export const picturesReducer = createReducer(
   initialState,
-  on(loadPictures, (state,action) =>{
+  on(loadPictures, (state, action): PicturesState => {
     // console.log(action);
-    return ({
-      ...state, loading: true
-    })}
-  ),
-  on(loadPicturesSuccess, (state,action) =>{
+    return {
+      ...state,
+      loading: true,
+    };
+  }),
+  on(loadPicturesSuccess, (state, action): PicturesState => {
     // console.log(action);
-    return ({
-      ...state, data: action.payload,
-      loading: false
-    })}
-  ),
-  on(incrementPage, (state,action) =>{
+    return {
+      ...state,
+      data: action.payload,
+      loading: false,
+    };
+  }),
+  on(incrementPage, (state, action): PicturesState => {
     // console.log(action);
-    return ({
-      ...state, page: state.page+1
-    })}
-  ),
-  on(clear, state => ({
-    ...state,
-    data: []
-  }))
+    return {
+      ...state,
+      page: state.page + 1,
+    };
+  }),
+  on(
+    clear,
+    (state): PicturesState => ({
+      ...state,
+      data: [],
+    })
+  )
 );

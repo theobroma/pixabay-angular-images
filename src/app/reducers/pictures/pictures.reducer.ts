@@ -5,6 +5,7 @@ import {
   loadPictures,
   loadPicturesSuccess,
 } from './pictures.actions';
+import { PicturesDataType } from './pictures.model';
 
 // const picturesInitialState = {
 //   data: {
@@ -20,7 +21,7 @@ import {
 // };
 
 export interface PicturesState {
-  data: any;
+  data: PicturesDataType;
   loading: boolean;
   page: number;
   pictureSearch: string;
@@ -64,12 +65,12 @@ export const picturesReducer = createReducer(
       ...state,
       page: state.page + 1,
     };
-  }),
-  on(
-    clear,
-    (state): PicturesState => ({
-      ...state,
-      data: [],
-    })
-  )
+  })
+  // on(
+  //   clear,
+  //   (state): PicturesState => ({
+  //     ...state,
+  //     data: [],
+  //   })
+  // )
 );

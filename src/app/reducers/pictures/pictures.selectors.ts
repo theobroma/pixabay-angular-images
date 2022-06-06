@@ -1,8 +1,8 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { PicturesState } from "./pictures.reducer";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { PicturesState } from './pictures.reducer';
 
 export const selectPicturesState =
-  createFeatureSelector<any, PicturesState>('pictures');
+  createFeatureSelector<PicturesState>('pictures');
 
 export const selectPictures = createSelector(
   selectPicturesState,

@@ -1,8 +1,8 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { SettingsState } from "./settings.reducer";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { SettingsState } from './settings.reducer';
 
 export const selectSettingsState =
-  createFeatureSelector<any, SettingsState>('settings');
+  createFeatureSelector<SettingsState>('settings');
 
 export const selectSettings = createSelector(
   selectSettingsState,
@@ -22,7 +22,6 @@ export const selectTheme = createSelector(
 //     (isNightHour ? nightTheme : theme).toLowerCase()
 // );
 
-export const selectEffectiveTheme = createSelector(
-  selectTheme,
-  (theme) => theme.toLowerCase()
+export const selectEffectiveTheme = createSelector(selectTheme, (theme) =>
+  theme.toLowerCase()
 );

@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ThemeService } from '../core/services/theme.service';
-import { AppState } from '../reducers';
 import { actionSettingsChangeTheme } from '../reducers/settings/settings.actions';
 import { selectSettings } from '../reducers/settings/settings.selectors';
 
@@ -36,12 +35,9 @@ export class AppbarComponent implements OnInit {
   ngOnInit() {
     this.settings$ = this.store
       .select(selectSettings)
-      .pipe
-      // tap(val => console.log('Settings: ', val))
-      ();
-    // this.settings$ = this.store.pipe(select("settings"));
-    this.isDarkTheme = this.themeService.isDarkTheme;
+      .pipe(tap((val) => console.log('Settings: ', val)));
     // this.settings$.subscribe(res => console.log(res));
+    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
   toggleDarkTheme(checked: boolean) {
